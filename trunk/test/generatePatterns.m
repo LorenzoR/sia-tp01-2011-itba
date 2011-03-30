@@ -12,8 +12,8 @@ step = (max-min)/cant;
 x = min:step:max;
 
 %y = 5.*sin(10*x).^2+cos(10*x) ;
-%y = 5.*sin(x).^2+cos(x) ;
-y = sin(x);
+y = 5.*sin(x).^2+cos(x) ;
+% y = sin(x);
 
 %expected_outputs = ( y' - 2 ) ./ 3;
 
