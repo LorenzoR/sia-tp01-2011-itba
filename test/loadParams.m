@@ -12,7 +12,7 @@ messagePerEpochs = floor( epochs / 50); % Cada cuantas epocas imprime mensaje
 % Parametros de la red
 num_inputs = 1+1;   % Entradas, incluye el BIAS
 num_outputs = 1;    % Salidas     
-num_hidden = 100+1;   % numero de neuronas en la capa oculta, incluye el BIAS    
+num_hidden = 1000+1;   % numero de neuronas en la capa oculta, incluye el BIAS    
 num_samples = 500;   % Cantidad de muestras que se toman en el intervalo de la funcion
 
 LR = 0.001;           % Indice de aprendizaje
