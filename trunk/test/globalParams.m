@@ -14,15 +14,33 @@ global num_inputs;      % Entradas (este numero incluye el "bias")
 global num_outputs;     % Salidas     
 global num_hidden;      % Neuronas en la capa oculta ( incluye el "bias") 
 global num_samples;     % Cantidad de muestras que se generan en el intervalo de la funcion    
+global layers;          % Para definir la cantidad de capas de la red(entrada + capas ocultas)
+global neuronsPerLayer; % Arreglo que define la cant de unidades en cada capa
+
 
 global num_patterns;    % Cant de patrones para entrenar la red. Se calcula dinamicamente
 global added_patterns;  % Cant de patrones agregados. Se calcula dinamicamente
 
 global LR;              % Indice de aprendizaje
 
+%LEARNING RATE ADAPTATIVO
+global adaptativeLR;
+global a;
+global b;
+
+% MOMENTUM
+% Indica si la red usara momentum. Puede ser true o false.
+global momentum;
+% Parametro para momentum
+global alpha;
+
+
 % Funcion de activacion para las capas ocultas
 global activationFunction;
 global activationFunctionDeriv;
+
+global linealAdicional; %true=la capa anterior a la salida tiene activacion lineal
+                        % false=tiene activacion determinada por "activationFunction"
 
 %Funcion de activacion para la capa de salida UNICAMENTE
 global outputActivationFunction;
