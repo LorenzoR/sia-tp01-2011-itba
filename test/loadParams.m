@@ -15,13 +15,30 @@ num_outputs = 1;    % Salidas
 num_hidden = 1000+1;   % numero de neuronas en la capa oculta, incluye el BIAS    
 num_samples = 500;   % Cantidad de muestras que se toman en el intervalo de la funcion
 
-LR = 0.001;           % Indice de aprendizaje
+% Para redes Multicapas. La cant de neuronas es sin tener en cuenta el BIAS
+layers = 2;          % Para definir la cantidad de capas de la red(entrada + capas ocultas)
+neuronsPerLayer = [1 1000 1]; % Arreglo que define la cant de unidades en cada capa
 
-%Funciones de activacion para las capas ocultas
+
+LR = 0.0001;           % Indice de aprendizaje
+adaptativeLR = true;
+a = LR/2;
+b = LR/2;
+
+
+momentum = true;
+alpha = 0.01;
+
+%Funciones de activacion pa1a las capas ocultas
 %activationFunction =  'exponential';
 activationFunction =  'tanHip';
 %activationFunctionDeriv = 'expDeriv'; 
 activationFunctionDeriv = 'tanHipDeriv';
+
+% true=la capa anterior a la salida tiene activacion lineal
+% false=tiene activacion determinada por "activationFunction"
+linealAdicional = false;
+
 
 % Funcion de activacion para las unidades de salida UNICAMENTE
 outputActivationFunction = 'lineal';
