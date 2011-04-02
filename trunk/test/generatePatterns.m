@@ -4,18 +4,15 @@
 % Detecta paridad impar, poniendo un 1 a la salida
 function [train_inputs, expected_outputs, num_patterns] = generatePatterns(min, max, cant)
 
-%min = min /10;
-%max = max / 10;
+x1 = linspace(min, -4, cant*200);
 
-step = (max-min)/cant;
+x2 = linspace(-4,4,cant*5);
 
-x = min:step:max;
+x3 = linspace(4,max,cant*200);
 
-%y = 5.*sin(10*x).^2+cos(10*x) ;
+x = [x1 x2 x3];
+
 y = 5.*sin(x).^2+cos(x) ;
-%y = sin(x);
-
-%expected_outputs = ( y' - 2 ) ./ 3;
 
 num_patterns = size(x);
 
@@ -23,18 +20,3 @@ num_patterns = num_patterns(2);
 
 train_inputs = [x' -ones(num_patterns, 1)];
 expected_outputs = y';
-
-% Normalizamos las entradas
-% train_inputs = x;
-% mu_inp = mean(train_inputs);
-% sigma_inp = 2*std(train_inputs);
-% train_inputs = (train_inputs(:,:) - mu_inp(:,1)) / sigma_inp(:,1);
-% train_inputs = [train_inputs' -ones(num_patterns, 1)];
-
-
-% Normalizamos las salidas
-% train_out = y';
-% mu_out = mean(train_out);
-% sigma_out = 2*std(train_out);
-% train_out = (train_out(:,:) - mu_out(:,1)) / sigma_out(:,1);
-% expected_outputs = train_out;
