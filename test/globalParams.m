@@ -9,6 +9,8 @@ global printEpochsMessages; % Booleano para determinar si imprimo los mensajes d
 global messagePerEpochs     % Cada cuantas epocas imprime mensaje de informacion
 global err_rel_porcentual_min % Cota para determinar si llegamos a un min local
 
+global generalizationTolerance; % Criterio para definir si un patron se generalizo
+
 % Parametros de la red
 global num_inputs;      % Entradas (este numero incluye el "bias")
 global num_outputs;     % Salidas     
@@ -49,11 +51,9 @@ global outputActivationFunctionDeriv;
 global beta;           % Constante de escalamiento para la funcion de activacion
 global weights_scale;  % Para escalar los pesos iniciales de la red, y evitar saturacion rapida
 
+global samplingType;    % Para decidir como se generan los patrones en el intervalo de trabajo
 
-% Para indicar si modifico los patrones de entrenamiento, para dirigir
-% mejor el aprendizaje de la red
-global modifyPatterns; 
-
-% Define cuantos patrones se agregaran como un porcentaje de los patrones 
-% de entrenamiento 
-global percentage_patterns;
+% Para samplingType "moreOnEdges", el intervalo se divide en 3 segmentos donde los
+% segmentos en los extremos tienen tantas muestras como tiene el segmento central
+% mutiplicado por "edgesRatio"
+global edgesRatio;      
